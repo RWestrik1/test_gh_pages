@@ -49,7 +49,7 @@ jobs:
           ls -1 lib | xargs -I {} sh -c 'mkdir ./lib/{}/{}'
           ls -1 lib | xargs -I {} sh -c 'echo "" > ./lib/{}/{}/__init__.py'
           echo "Installing dev dependencies"
-          poetry install --only dev,test
+          poetry install --only precommit
           echo "Installing poetry"
           poetry run pip install poetry
       
