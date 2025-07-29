@@ -84,7 +84,7 @@ jobs:
           poetry run pip install poetry
 
       - name: Unit tests
-        run: poetry run pytest ./tests --doctest-modules --junitxml=junit/test-results.xml --cov=src/package_repo --cov-config=.coveragerc_pipeline --cov-report=xml --cov-report=html -m "not onlylocal" 
+        run: poetry run pytest --cov-report term-missing --cov=src/test_gh_pages tests/ -m "not onlylocal" 
 
       - name: Upload test results
         # Use always() to always run this step to publish test results when there are test failures
@@ -92,15 +92,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: pytest-results
-          path: junit/test-results.xml
+          path: coverage.xml
 
         # https://josh-ops.com/posts/github-code-coverage/
       - name: Code Coverage Summary Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          filename: 'junit/test-results.xml'
+          filename: 'coverage.xml'
           badge: true
-          format: 'markdown'
+          format: 'xml'
           output: 'both'
     
       - name: Add Coverage PR Comment
