@@ -116,6 +116,9 @@ jobs:
   Documentation:    
     runs-on: ubuntu-latest
     if: success() && github.ref == 'refs/heads/main'
+    permissions:
+      id-token: write
+      pages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
