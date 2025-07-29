@@ -1,0 +1,12 @@
+name: test_gh_pages
+channels:
+  - conda-forge
+  - anaconda
+  - nodefaults
+dependencies:
+  - python=3.11
+  - pip:
+    - test_gh_pages==X.X.X
+    - >-
+      --extra-index-url
+      https://pkgs.dev.azure.com/${org_name}/test_gh_pages/_packaging/${feed_view}/pypi/simple/
