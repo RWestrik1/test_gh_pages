@@ -113,7 +113,7 @@ jobs:
       - name: Write to Job Summary
         run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
 
-  Sphinx Documentation:    
+  Documentation:    
     needs: Build
     runs-on: ubuntu-latest
     if: success() && github.ref == 'refs/heads/main'
