@@ -144,13 +144,13 @@ jobs:
 
       - name: Build documentation
         run: |
-          poetry run make docs/clean
-          poetry run make docs/html
+          poetry run make ./docs/clean
+          poetry run make ./docs/html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'docs/html'
+          path: './docs/html'
 
       - name: Deploy to GitHub Pages
         id: deployment
