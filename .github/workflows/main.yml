@@ -114,7 +114,6 @@ jobs:
         run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
 
   Documentation:    
-    needs: Build
     runs-on: ubuntu-latest
     if: success() && github.ref == 'refs/heads/main'
     steps:
